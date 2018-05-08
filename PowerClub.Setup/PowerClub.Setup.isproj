@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\GreenRetail.Trainer.PowerClub\GreenRetail.Trainer.PowerClub.csproj">
+			<Name>GreenRetail.Trainer.PowerClub</Name>
+			<Project>{C77F4FE4-D9DB-4528-AEE4-20C418887D62}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\PowerClub.Bussiness\PowerClub.Bussiness.csproj">
+			<Name>PowerClub.Bussiness</Name>
+			<Project>{D91CDCCB-8EF8-4E0C-9D59-B8E68F41BB8A}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\PowerClub.DataAccess\PowerClub.DataAccess.csproj">
+			<Name>PowerClub.DataAccess</Name>
+			<Project>{462AC2EF-B245-4A7D-BD96-0886A95F083F}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\WpfGym\PowerClub.WPF.csproj">
+			<Name>PowerClub.WPF</Name>
+			<Project>{65111585-05C0-4107-A4D6-1AEE49ABDEE4}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

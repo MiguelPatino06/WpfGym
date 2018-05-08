@@ -1,0 +1,150 @@
+﻿<Window x:Class="WpfGym.Index"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGym"
+        xmlns:controls="clr-namespace:WpfGym.Controls"
+        mc:Ignorable="d"
+        Title="Power Gym" WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="ComboBoxGrisOscuro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FF595959" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FF595959"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CC595959" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CC595959" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ComboBoxGrisClaro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FFE5E5E5" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FFE5E5E5"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CCE5E5E5" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CCE5E5E5" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Grid  Background="#FFF4F4F4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,3" Grid.ColumnSpan="9" Background="#FF595959">
+            <!--<Label x:Name="Lbl" Content="Power Club" HorizontalContentAlignment="Center" Margin="0,4,-0.2,-9.767" FontSize="34" Foreground="White" FontWeight="Bold" Background="#FF595959" VerticalAlignment="Center" FontFamily="EXO" Height="48"/>-->
+            <Image x:Name="ImgIndex" HorizontalAlignment="Center" Source="Component/Resources/ICON_PWC_BANNER_LOGO.png"    />
+            
+        </Grid>
+        <!--<Button x:Name="btnBranchOffice" Grid.ColumnSpan="1" Content="Sucursal" Grid.Column="1"  Grid.Row="2"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_BranchOffice" />-->
+        <controls:GRButton x:Name="btnBranchOffice" FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_SUCURSAL.png" ButtonText="Sucursal"  Foreground="White" VerticalAlignment="Stretch" Click="Button_BranchOffice" Grid.Row="2" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="1" />
+        <!--<Button x:Name="btnTrainer" Grid.ColumnSpan="1" Content="Trainer" Grid.Column="7"  Grid.Row="2"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_Trainer" />-->
+        <controls:GRButton x:Name="btnTrainer"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_TRAINER.png" ButtonText="Trainer"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Trainer" Grid.Row="2" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="7" />
+        <!--<Button x:Name="btnWorkout" Grid.ColumnSpan="1" Content="Entrenamiento" Grid.Column="1"  Grid.Row="4"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_Workout" />-->
+        <controls:GRButton x:Name="btnWorkout"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_DISCIPLINA.png" ButtonText="Tipo clase"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Workout" Grid.Row="4" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="1" />
+        <!--<Button x:Name="btnClass" Grid.ColumnSpan="1" Content="Clases" Grid.Column="3"  Grid.Row="2"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_Class" />-->
+        <controls:GRButton x:Name="btnClass"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_CLASE.png" ButtonText="Clases"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Class" Grid.Row="2" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="3" />
+        <!--<Button x:Name="btnClassSchedule" Grid.ColumnSpan="1" Content="Horario" Grid.Column="5"  Grid.Row="2"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_ClassSchedule" />-->
+        <controls:GRButton x:Name="btnClassSchedule"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_CALENDARIO.png" ButtonText="Calendario"  Foreground="White" VerticalAlignment="Stretch" Click="Button_ClassSchedule" Grid.Row="2" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="5" />
+        <!--<Button x:Name="btnStaff" Grid.ColumnSpan="1" Content="Staff" Grid.Column="3"  Grid.Row="4"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_Staff" />-->
+        <controls:GRButton x:Name="btnStaff"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_STAFF.png" ButtonText="Staff"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Staff" Grid.Row="4" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="3" />
+        <!--<Button x:Name="btnClassScheduleReviewList" Grid.ColumnSpan="1" Content="Registro Clases" Grid.Column="5"  Grid.Row="4"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_ClassScheduleReviewList" />-->
+        <controls:GRButton x:Name="btnClassScheduleReviewList"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/Icon_registro Clase.png" ButtonText="Lista de Clases"  Foreground="White" VerticalAlignment="Stretch" Click="Button_ClassScheduleReviewList" Grid.Row="4" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="5" />
+        <!--<Button x:Name="btnReport" Grid.ColumnSpan="1" Content="Registro Clases" Grid.Column="7"  Grid.Row="4"  FontFamily="EXO" FontSize="14"  Foreground="Black"  Click="Button_Reports" />-->
+        <controls:GRButton x:Name="btnExport"  FontFamily="EXO"   FontSize="12" HorizontalAlignment="Center"  ButtonImage="Component/Resources/Icon_Corte X_ON.png" ButtonText="Exportar Clases"  Foreground="White" VerticalAlignment="Center" Click="Button_Export" Grid.Row="6" ButtonImageH="28" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="8" Margin="5,10,20,20" ButtonImageW="28" />
+
+
+        <controls:GRButton x:Name="btnReport"  FontFamily="EXO"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="Component/Resources/ICON_REPORTE.png" ButtonText="Reportes"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Reports" Grid.Row="4" ButtonImageH="30" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="7" />
+    </Grid>
+</Window>

@@ -1,0 +1,211 @@
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="WpfGym.Views.ClassSchedule.ClassScheduleReview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGym.Views.ClassSchedule"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:controls="clr-namespace:WpfGym.Controls"
+        mc:Ignorable="d"
+        Title="Horario de Clases"  WindowStartupLocation="CenterScreen"  WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="ComboBoxGrisOscuro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FF595959" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FF595959"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CC595959" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CC595959" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ComboBoxGrisClaro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FFE5E5E5" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FFE5E5E5"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CCE5E5E5" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CCE5E5E5" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Name="GridClass" Margin="0,0,-0.2,-0.6" Background="#FFF4F4F4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0.2,2.767" Grid.ColumnSpan="9" Background="#FF595959">
+            <Label x:Name="LblClassScheduleReview" Content="Via Pacifica - Lunes - Spinning " HorizontalContentAlignment="Center" Margin="0,4,0.4,3.967" FontSize="34" Foreground="White" FontWeight="Bold" Background="#FF595959" VerticalAlignment="Center" FontFamily="EXO"/>
+        </Grid>
+
+        <!--Hidden Fields-->
+        <Label    x:Name="LblId" Margin="8,5,8,5"    Grid.Row="1"  Grid.ColumnSpan="2"  Grid.Column="1" Visibility="Hidden" />
+        <Label    x:Name="LblIdTrainer" Margin="8,5,8,5"    Grid.Row="1"  Grid.ColumnSpan="2"  Grid.Column="1" Visibility="Hidden" />
+        <Label    x:Name="LblIdStaff" Margin="8,5,8,5"    Grid.Row="1"  Grid.ColumnSpan="2"  Grid.Column="1" Visibility="Hidden" />
+        <Label    x:Name="LblIdClass" Margin="8,5,8,5"    Grid.Row="1"  Grid.ColumnSpan="2"  Grid.Column="1" Visibility="Hidden" />
+        <!--Hidden Fields-->
+
+        <Label    x:Name="LblObservacion"     FontFamily="EXO" FontSize="20" Content="Observación:" Margin="8,5,8,5"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="1"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <TextBox  x:Name="TxtObservacion"  FontFamily="EXO" FontSize="20"   Margin="8,5"      VerticalContentAlignment="Center"                                       Grid.Row="1"  Grid.ColumnSpan="6" Grid.Column="3"  Background="#FF595959" Foreground="White"/>
+
+
+        <Label    x:Name="LblHoraInicio"        FontFamily="EXO" FontSize="20" Content="Hora Inicio (12:24):" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="3"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <xctk:MaskedTextBox 
+            x:Name="mkbHoraInicio" 
+            Mask="00:00"                                
+            CaretIndex="0"  
+            ValueDataType="{x:Type s:String}"
+            FontFamily="EXO" 
+            FontSize="20"
+            Margin="8,5,8,5"
+            VerticalContentAlignment="Center"
+            Background="#FF595959" 
+            Foreground="White"
+            Grid.Row="3" 
+            Grid.Column="3" 
+            Grid.ColumnSpan="2" />
+        <Label    x:Name="LblHoraFin"        FontFamily="EXO" FontSize="20" Content="Hora Fin (10:30):" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="3"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="5"/>
+        <xctk:MaskedTextBox             
+            x:Name="mkbHoraFin" 
+            Mask="00:00"                                
+            CaretIndex="0"  
+            ValueDataType="{x:Type s:String}"
+            FontFamily="EXO" 
+            FontSize="20"
+            Margin="8,5,8,5"
+            VerticalContentAlignment="Center"
+            Background="#FF595959" 
+            Foreground="White"
+            Grid.Row="3" 
+            Grid.Column="7" 
+            Grid.ColumnSpan="2" />
+
+        <Label    x:Name="LblStaff"        FontFamily="EXO" FontSize="20" Content="Staff:" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="5"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <ComboBox x:Name="CmbStaf" SelectedValuePath="Id" DisplayMemberPath="Name" FontFamily="exo" VerticalContentAlignment="Center" Grid.Column="3" Margin="6,1,10,9" SelectedIndex="-1"  Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxGrisOscuro}" Foreground="White" FontSize="20" SelectionChanged="CmbStaf_SelectionChanged" />
+        <Label    x:Name="LblMembers"        FontFamily="EXO" FontSize="20" Content="Asistentes:" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="5"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="5"/>
+        <xctk:IntegerUpDown 
+            x:Name="intMembers" 
+            Value="0" 
+            Increment="1"
+            FormatString="G"
+            Maximum="200"
+            FontFamily="EXO" 
+            FontSize="20"
+            Margin="8,5,8,5"
+            VerticalContentAlignment="Center"
+            Background="#FF595959" 
+            Foreground="White"
+            Grid.Row="5" 
+            Grid.Column="7" 
+            Grid.ColumnSpan="2"/>
+        <Label    x:Name="LblTrainer"        FontFamily="EXO" FontSize="20" Content="Trainer:" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="7"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <ComboBox x:Name="CmbTrainer" TabIndex="6" SelectedValuePath="Id" DisplayMemberPath="Name" FontFamily="exo" VerticalContentAlignment="Center" Grid.Column="3" Margin="6,1,10,9" SelectedIndex="-1"  Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxGrisOscuro}" FontSize="20" Foreground="White" SelectionChanged="CmbTrainer_SelectionChanged" />
+
+        <!--<Button x:Name="ButtonAplicar"  FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  Content=" Cierre Trainig"  Foreground="Black" VerticalAlignment="Stretch" Click="Button_Aplicar" Grid.Row="9" IsDefault="True" Grid.Column="5" Grid.ColumnSpan="2" />
+        <Button x:Name="ButtonCancelar" FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  Content=" Cancelar" Foreground="Black" VerticalAlignment="Stretch" Click="Button_Cancel"  Grid.Row="9" IsCancel="True"  Grid.Column="7" Grid.ColumnSpan="2"/>-->
+
+        <controls:GRButton x:Name="ButtonApertura"  FontFamily="EXO" Margin="80,10,55,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/HUELLA.png"   ButtonText=" Apertura"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Apertura" Grid.Row="9" ButtonImageH="94" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="3" Grid.ColumnSpan="3" />
+
+        <controls:GRButton x:Name="ButtonCierre"  FontFamily="EXO" Margin="80,10,55,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/SILBATO.png"   ButtonText=" Cierre"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Cierre" Grid.Row="9" ButtonImageH="94" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="3" Grid.ColumnSpan="3" />
+
+        <controls:GRButton x:Name="ButtonCancelar" FontFamily="EXO" Margin="49,10,86,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/Icon_Eliminar Item_ON.png"                         ButtonText=" Suspender" Foreground="White" VerticalAlignment="Stretch" Click="Button_Cancel"  Grid.Row="9" ButtonImageH="30" IsCancel="True"  Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="5" Grid.ColumnSpan="3"/>
+
+        <controls:GRButton x:Name="ButtonSalir" FontFamily="EXO" Margin="19,10,21,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/ICON_GENERIC_AGREGARCLIENTE_GUARDARYSALIR.png"                         ButtonText=" Salir" Foreground="White" VerticalAlignment="Stretch" Click="Button_Salir"  Grid.Row="9" ButtonImageH="30" IsCancel="True"  Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="7" Grid.ColumnSpan="2"/>
+
+        <Label x:Name="LblStatusClass" Content="CLASE CERRADA" Grid.Column="5" HorizontalAlignment="Left" Margin="73,14,0,0" Grid.Row="7" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="#FFF92705" FontFamily="Exo" Grid.ColumnSpan="4" Width="285" />
+
+
+    </Grid>
+</Window>

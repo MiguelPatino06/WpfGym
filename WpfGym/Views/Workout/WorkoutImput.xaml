@@ -1,0 +1,168 @@
+﻿<Window xmlns:Controls="clr-namespace:WpfGym.Controls"  x:Class="WpfGym.Views.Workout.WorkoutImput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGym.Views.Workout"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"  WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="ComboBoxGrisOscuro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FF595959" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FF595959"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CC595959" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CC595959" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ComboBoxGrisClaro"  TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox" >
+                        <Grid>
+                            <ToggleButton Grid.Column="2" Focusable="false"  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2"  Background="#FFE5E5E5" BorderBrush="Black"  />
+                                            <Border Grid.Column="0" Background="#FFE5E5E5"  BorderBrush="Black"  />
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="#CCE5E5E5" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="black" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="#CCE5E5E5" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!--<Style x:Key="DatePickerGrisOscuro" TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Background" Value="#FF595959" />
+        </Style>
+        <Style x:Key="DatePickerGrisClaro" TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Background" Value="#FFE5E5E5" />
+        </Style>-->
+
+
+    </Window.Resources>
+
+    <Grid Margin="0,0,-0.2,-0.6" Background="#FFF4F4F4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0.2,2.767" Grid.ColumnSpan="9" Background="#FF595959">
+            <Label x:Name="LabelPaymentType" Content="Entrenamiento" HorizontalContentAlignment="Center" Margin="0,4,0.4,3.967" FontSize="34" Foreground="White" FontWeight="Bold" Background="#FF595959" VerticalAlignment="Center" FontFamily="EXO"/>
+        </Grid>
+        <Label    x:Name="LblId" Margin="8,5,8,5"    Grid.Row="1"  Grid.ColumnSpan="2"  Grid.Column="1" Visibility="Hidden" />
+        <Label    x:Name="LblCodigo"         FontFamily="EXO" FontSize="20" Content="Código"       Margin="8,5,8,5"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="1"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1" />
+        <TextBox  x:Name="TxtCodigo"         FontFamily="EXO" FontSize="20"                        Margin="8,5,8,5"      VerticalContentAlignment="Center"                                       Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="3"  Background="#FF595959" Foreground="White"/>
+        <Label    x:Name="LblName"         FontFamily="EXO" FontSize="20" Content="Nombre"       Margin="8,5,8,5"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="3"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1" />
+        <TextBox  x:Name="TxtName"         FontFamily="EXO" FontSize="20"                        Margin="8,5,8,5"      VerticalContentAlignment="Center"                                       Grid.Row="3"  Grid.ColumnSpan="6" Grid.Column="3"  Background="#FF595959" Foreground="White"/>
+        <Label    x:Name="LblDescription"  FontFamily="EXO" FontSize="20" Content="Descripción:" Margin="8,5,8,5"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="5"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <TextBox  x:Name="TxtDescription"  FontFamily="EXO" FontSize="20"                        Margin="8,5"      VerticalContentAlignment="Center"                                       Grid.Row="5"  Grid.ColumnSpan="6" Grid.Column="3"  Background="#FF595959" Foreground="White"/>
+        <Label    x:Name="LblType"        FontFamily="EXO" FontSize="20" Content="Salon:" Margin="8,5,8,5"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="7"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <ComboBox x:Name="CmbParent" SelectedValuePath="Id" DisplayMemberPath="Name" FontFamily="exo" VerticalContentAlignment="Center" Grid.Column="3" Margin="8,4,8,5" SelectedIndex="-1"  Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxGrisOscuro}" Foreground="White" FontSize="20" />
+
+        <Label    x:Name="LblStatus"                   FontFamily="EXO" FontSize="20" Content="Estatus:"         Margin="10,5,7,4"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="7"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="5"/>
+        <ComboBox x:Name="CmbActive" FontFamily="exo" VerticalContentAlignment="Center" Grid.Column="7" Margin="6,4,10,5" Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxGrisOscuro}" Foreground="White" FontSize="20">
+            <ComboBoxItem Content="Activo"/>
+            <ComboBoxItem Content="Inactivo"/>
+
+        </ComboBox>
+
+        <!--<Button x:Name="ButtonAplicar"  FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  Content=" Aplicar"  Foreground="Black" VerticalAlignment="Stretch" Click="Button_Aplicar" Grid.Row="8" IsDefault="True" Grid.Column="5" Grid.ColumnSpan="2" />
+        <Button x:Name="ButtonCancelar" FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  Content=" Cancelar" Foreground="Black" VerticalAlignment="Stretch" Click="Button_Cancel"  Grid.Row="8" IsCancel="True"  Grid.Column="7" Grid.ColumnSpan="2"/>-->
+        <Controls:GRButton x:Name="ButtonAplicar"  FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/ANIMO_ICON_ACEPTAR_TARJETAS DE CREDITO.png"   ButtonText=" Aplicar"  Foreground="White" VerticalAlignment="Stretch" Click="Button_Aplicar" Grid.Row="11" ButtonImageH="24" IsDefault="True" Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="5" Grid.ColumnSpan="2" />
+        <Controls:GRButton x:Name="ButtonCancelar" FontFamily="EXO" Margin="20,10,20,10"   FontSize="18" HorizontalAlignment="Stretch"  ButtonImage="../../Component/Resources/ANIMO_ICON_SALIR.png"                         ButtonText=" Cancelar" Foreground="White" VerticalAlignment="Stretch" Click="Button_Cancel"  Grid.Row="11" ButtonImageH="24" IsCancel="True"  Style="{DynamicResource GRButtonStyleNaranjaAnimo}" Grid.Column="7" Grid.ColumnSpan="2"/>
+        
+        <Label    x:Name="LblColor"        FontFamily="EXO" FontSize="20" Content="Color:" Margin="8,2,8,9"      VerticalContentAlignment="Center"  HorizontalContentAlignment="Center"  Grid.Row="9"  Grid.ColumnSpan="2" Background="#FFE5E5E5" Foreground="black" Grid.Column="1"/>
+        <Controls:BruschCombo x:Name="CmbColor" FontFamily="exo" VerticalContentAlignment="Center" Foreground="White" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="2" />
+
+    </Grid>
+</Window>

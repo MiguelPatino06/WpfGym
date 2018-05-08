@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfGym.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"     
+        xmlns:viewModels="clr-namespace:WpfGym.ViewModels"
+        xmlns:wpfGym="clr-namespace:WpfGym"
+        mc:Ignorable="d"
+        Title="Calendario" Height="350" Width="811.667" WindowState="Maximized">
+    <Window.Resources>
+        <viewModels:ScheduleViewModel x:Key="ViewModel"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource ViewModel}}" Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="62"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="62"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="29*"/>
+                    <RowDefinition Height="9*"/>
+
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0"  Grid.Row="1" Text="Sucursal" VerticalAlignment="Center" Margin="2,4,16,9" Height="16"  />
+                <ComboBox x:Name="cmbBranchOffice" Grid.Column="1" Grid.ColumnSpan="2" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,10,0,5"     SelectedValuePath="Key" DisplayMemberPath="Value" Loaded="cmbBranchOffice_OnLoaded"  SelectionChanged="cmbBranchOffice_SelectionChanged" Height="26" Grid.RowSpan="2"/>
+
+                <TextBlock Grid.Column="3"  Grid.Row="1" Text="Salon" VerticalAlignment="Center" Margin="16,4,10,9" Height="16" />
+                <ComboBox x:Name="cmbLivingroom"   Grid.Column="4" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,10,0,5"  SelectedValuePath="Key" DisplayMemberPath="Value"  SelectionChanged="cmbLivingroom_SelectionChanged" Height="26" Grid.RowSpan="2"/>
+
+                <TextBlock Grid.Column="6"  Grid.Row="1" Text="Disciplina" VerticalAlignment="Center" Margin="10,3,10,10" Height="16" />
+                <ComboBox x:Name="cmbWorkout" Grid.Column="7" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,10,0,5"  SelectedValuePath="Key" DisplayMemberPath="Value"  SelectionChanged="cmbWorkout_SelectionChanged" Height="26" Grid.RowSpan="2"/>
+            </Grid>
+
+        </DockPanel>
+
+        <wpfGym:Scheduler
+            x:Name="scheduleControl"
+            Grid.Row="1"
+            Mode="Week"
+            StartJourney="{Binding StartJourney}"
+            EndJourney="{Binding EndJourney}"
+            Events="{Binding WpfScheduleEvents}"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <!--OnEventDoubleClick="WeekScheduler_OnEventDoubleClick"
+            OnScheduleDoubleClick="WeekScheduler_OnScheduleDoubleClick"-->
+
+
+
+
+    </Grid>
+</Window>

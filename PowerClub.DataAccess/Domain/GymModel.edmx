@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GYMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BranchOffice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Observation" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="StarHour" Type="time" Precision="7" />
+          <Property Name="EndHour" Type="time" Precision="7" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ClassSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBranchOficce" Type="int" Nullable="false" />
+          <Property Name="IdWorkout" Type="int" Nullable="false" />
+          <Property Name="DayWeek" Type="int" />
+          <Property Name="StarTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+          <Property Name="IdTrainer" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUdated" Type="datetime" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReviewClassSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClassSchedule" Type="int" Nullable="false" />
+          <Property Name="Observation" Type="nvarchar(max)" />
+          <Property Name="IdStaff" Type="int" Nullable="false" />
+          <Property Name="IsTrainer" Type="bit" />
+          <Property Name="IdTrainer" Type="int" />
+          <Property Name="Members" Type="int" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+          <Property Name="Status" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="Finger1" Type="image" />
+          <Property Name="Finger2" Type="image" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IdType" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="Finger1" Type="image" />
+          <Property Name="Finger2" Type="image" />
+          <Property Name="PhotoLink" Type="nvarchar" MaxLength="255" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <EntityType Name="TrainerType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GYM.dbo.WorkoutParentClassSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WorkoutParentClassSchedule">
+          <Key>
+            <PropertyRef Name="IdBranchOficce" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="IdBranchOficce" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdParent" Type="int" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Parent" Type="int" />
+        </EntityType>
+        <Association Name="FK_ClassSchedule_BrancOficce">
+          <End Role="BranchOffice" Type="Self.BranchOffice" Multiplicity="1" />
+          <End Role="ClassSchedule" Type="Self.ClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClassSchedule">
+              <PropertyRef Name="IdBranchOficce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClassSchedule_Exercise">
+          <End Role="Workout" Type="Self.Workout" Multiplicity="1" />
+          <End Role="ClassSchedule" Type="Self.ClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workout">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClassSchedule">
+              <PropertyRef Name="IdWorkout" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReviewClassSchedule_ClassSchedule">
+          <End Role="ClassSchedule" Type="Self.ClassSchedule" Multiplicity="1" />
+          <End Role="ReviewClassSchedule" Type="Self.ReviewClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassSchedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReviewClassSchedule">
+              <PropertyRef Name="IdClassSchedule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReviewClassSchedule_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="ReviewClassSchedule" Type="Self.ReviewClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReviewClassSchedule">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_TrainerType">
+          <End Role="TrainerType" Type="Self.TrainerType" Multiplicity="1" />
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainerType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainer">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetClassScheduleByOfficeWorkouTrainer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBrancOffice" Type="int" Mode="In" />
+          <Parameter Name="IdWorkout" Type="int" Mode="In" />
+          <Parameter Name="IdTrainer" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="GYMModelStoreContainer">
+          <EntitySet Name="BranchOffice" EntityType="Self.BranchOffice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassSchedule" EntityType="Self.ClassSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewClassSchedule" EntityType="Self.ReviewClassSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainerType" EntityType="Self.TrainerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workout" EntityType="Self.Workout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkoutParentClassSchedule" EntityType="Self.WorkoutParentClassSchedule" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WorkoutParentClassSchedule].[IdBranchOficce] AS [IdBranchOficce], 
+    [WorkoutParentClassSchedule].[Name] AS [Name], 
+    [WorkoutParentClassSchedule].[Description] AS [Description], 
+    [WorkoutParentClassSchedule].[Id] AS [Id], 
+    [WorkoutParentClassSchedule].[IdParent] AS [IdParent], 
+    [WorkoutParentClassSchedule].[ParentName] AS [ParentName], 
+    [WorkoutParentClassSchedule].[Parent] AS [Parent]
+    FROM [dbo].[WorkoutParentClassSchedule] AS [WorkoutParentClassSchedule]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ClassSchedule_BrancOficce" Association="Self.FK_ClassSchedule_BrancOficce">
+            <End Role="BranchOffice" EntitySet="BranchOffice" />
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClassSchedule_Exercise" Association="Self.FK_ClassSchedule_Exercise">
+            <End Role="Workout" EntitySet="Workout" />
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReviewClassSchedule_ClassSchedule" Association="Self.FK_ReviewClassSchedule_ClassSchedule">
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+            <End Role="ReviewClassSchedule" EntitySet="ReviewClassSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReviewClassSchedule_Staff" Association="Self.FK_ReviewClassSchedule_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ReviewClassSchedule" EntitySet="ReviewClassSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_TrainerType" Association="Self.FK_Trainer_TrainerType">
+            <End Role="TrainerType" EntitySet="TrainerType" />
+            <End Role="Trainer" EntitySet="Trainer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GYMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GYMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TrainerType" EntityType="GYMModel.TrainerType" />
+          <EntitySet Name="WorkoutParentClassSchedule" EntityType="GYMModel.WorkoutParentClassSchedule" />
+          <EntitySet Name="BranchOffice" EntityType="GYMModel.BranchOffice" />
+          <FunctionImport Name="GetClassScheduleByOfficeWorkouTrainer">
+            <Parameter Name="IdBrancOffice" Mode="In" Type="Int32" />
+            <Parameter Name="IdWorkout" Mode="In" Type="Int32" />
+            <Parameter Name="IdTrainer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Staff" EntityType="GYMModel.Staff" />
+          <EntitySet Name="Trainer" EntityType="GYMModel.Trainer" />
+          <AssociationSet Name="FK_Trainer_TrainerType" Association="GYMModel.FK_Trainer_TrainerType">
+            <End Role="TrainerType" EntitySet="TrainerType" />
+            <End Role="Trainer" EntitySet="Trainer" />
+          </AssociationSet>
+          <EntitySet Name="ClassSchedule" EntityType="GYMModel.ClassSchedule" />
+          <AssociationSet Name="FK_ClassSchedule_BrancOficce" Association="GYMModel.FK_ClassSchedule_BrancOficce">
+            <End Role="BranchOffice" EntitySet="BranchOffice" />
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+          </AssociationSet>
+          <FunctionImport Name="GetClassScheduleByOfficeWorkouTrainer1" ReturnType="Collection(GYMModel.GetClassScheduleByOfficeWorkouTrainer1_Result)">
+            <Parameter Name="IdBrancOffice" Mode="In" Type="Int32" />
+            <Parameter Name="IdWorkout" Mode="In" Type="Int32" />
+            <Parameter Name="IdTrainer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ReviewClassSchedule" EntityType="GYMModel.ReviewClassSchedule" />
+          <AssociationSet Name="FK_ReviewClassSchedule_ClassSchedule" Association="GYMModel.FK_ReviewClassSchedule_ClassSchedule">
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+            <End Role="ReviewClassSchedule" EntitySet="ReviewClassSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReviewClassSchedule_Staff" Association="GYMModel.FK_ReviewClassSchedule_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ReviewClassSchedule" EntitySet="ReviewClassSchedule" />
+          </AssociationSet>
+          <EntitySet Name="Workout" EntityType="GYMModel.Workout" />
+          <AssociationSet Name="FK_ClassSchedule_Exercise" Association="GYMModel.FK_ClassSchedule_Exercise">
+            <End Role="Workout" EntitySet="Workout" />
+            <End Role="ClassSchedule" EntitySet="ClassSchedule" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TrainerType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="Trainer" Relationship="GYMModel.FK_Trainer_TrainerType" FromRole="TrainerType" ToRole="Trainer" />
+        </EntityType>
+        <EntityType Name="WorkoutParentClassSchedule">
+          <Key>
+            <PropertyRef Name="IdBranchOficce" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="IdBranchOficce" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdParent" Type="Int32" />
+          <Property Name="ParentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BranchOffice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="StarHour" Type="Time" Precision="7" />
+          <Property Name="EndHour" Type="Time" Precision="7" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ClassSchedule" Relationship="GYMModel.FK_ClassSchedule_BrancOficce" FromRole="BranchOffice" ToRole="ClassSchedule" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="Finger1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Finger2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ReviewClassSchedule" Relationship="GYMModel.FK_ReviewClassSchedule_Staff" FromRole="Staff" ToRole="ReviewClassSchedule" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdType" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="Finger1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Finger2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoLink" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <NavigationProperty Name="TrainerType" Relationship="GYMModel.FK_Trainer_TrainerType" FromRole="Trainer" ToRole="TrainerType" />
+        </EntityType>
+        <Association Name="FK_Trainer_TrainerType">
+          <End Type="GYMModel.TrainerType" Role="TrainerType" Multiplicity="1" />
+          <End Type="GYMModel.Trainer" Role="Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainerType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainer">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClassSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBranchOficce" Type="Int32" Nullable="false" />
+          <Property Name="IdWorkout" Type="Int32" Nullable="false" />
+          <Property Name="DayWeek" Type="Int32" />
+          <Property Name="StarTime" Type="Time" Precision="7" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
+          <Property Name="IdTrainer" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUdated" Type="DateTime" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BranchOffice" Relationship="GYMModel.FK_ClassSchedule_BrancOficce" FromRole="ClassSchedule" ToRole="BranchOffice" />
+          <NavigationProperty Name="ReviewClassSchedule" Relationship="GYMModel.FK_ReviewClassSchedule_ClassSchedule" FromRole="ClassSchedule" ToRole="ReviewClassSchedule" />
+          <NavigationProperty Name="Workout" Relationship="GYMModel.FK_ClassSchedule_Exercise" FromRole="ClassSchedule" ToRole="Workout" />
+        </EntityType>
+        <Association Name="FK_ClassSchedule_BrancOficce">
+          <End Type="GYMModel.BranchOffice" Role="BranchOffice" Multiplicity="1" />
+          <End Type="GYMModel.ClassSchedule" Role="ClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchOffice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClassSchedule">
+              <PropertyRef Name="IdBranchOficce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetClassScheduleByOfficeWorkouTrainer1_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdBranchOficce" Nullable="false" />
+          <Property Type="Int32" Name="IdWorkout" Nullable="false" />
+          <Property Type="Int32" Name="DayWeek" Nullable="true" />
+          <Property Type="Time" Name="StarTime" Nullable="true" />
+          <Property Type="Time" Name="EndTime" Nullable="true" />
+          <Property Type="Int32" Name="IdTrainer" Nullable="true" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DateUdated" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NameWorkout" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NameBranchOffice" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="ReviewClassSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClassSchedule" Type="Int32" Nullable="false" />
+          <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdStaff" Type="Int32" Nullable="false" />
+          <Property Name="IsTrainer" Type="Boolean" />
+          <Property Name="IdTrainer" Type="Int32" />
+          <Property Name="Members" Type="Int32" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ClassSchedule" Relationship="GYMModel.FK_ReviewClassSchedule_ClassSchedule" FromRole="ReviewClassSchedule" ToRole="ClassSchedule" />
+          <NavigationProperty Name="Staff" Relationship="GYMModel.FK_ReviewClassSchedule_Staff" FromRole="ReviewClassSchedule" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_ReviewClassSchedule_ClassSchedule">
+          <End Type="GYMModel.ClassSchedule" Role="ClassSchedule" Multiplicity="1" />
+          <End Type="GYMModel.ReviewClassSchedule" Role="ReviewClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassSchedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReviewClassSchedule">
+              <PropertyRef Name="IdClassSchedule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReviewClassSchedule_Staff">
+          <End Type="GYMModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="GYMModel.ReviewClassSchedule" Role="ReviewClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReviewClassSchedule">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Workout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ClassSchedule" Relationship="GYMModel.FK_ClassSchedule_Exercise" FromRole="Workout" ToRole="ClassSchedule" />
+        </EntityType>
+        <Association Name="FK_ClassSchedule_Exercise">
+          <End Type="GYMModel.Workout" Role="Workout" Multiplicity="1" />
+          <End Type="GYMModel.ClassSchedule" Role="ClassSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workout">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClassSchedule">
+              <PropertyRef Name="IdWorkout" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GYMModelStoreContainer" CdmEntityContainer="GYMEntities">
+          <EntitySetMapping Name="TrainerType">
+            <EntityTypeMapping TypeName="GYMModel.TrainerType">
+              <MappingFragment StoreEntitySet="TrainerType">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkoutParentClassSchedule">
+            <EntityTypeMapping TypeName="GYMModel.WorkoutParentClassSchedule">
+              <MappingFragment StoreEntitySet="WorkoutParentClassSchedule">
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="IdParent" ColumnName="IdParent" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdBranchOficce" ColumnName="IdBranchOficce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchOffice">
+            <EntityTypeMapping TypeName="GYMModel.BranchOffice">
+              <MappingFragment StoreEntitySet="BranchOffice">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="EndHour" ColumnName="EndHour" />
+                <ScalarProperty Name="StarHour" ColumnName="StarHour" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Observation" ColumnName="Observation" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="GYMModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Finger2" ColumnName="Finger2" />
+                <ScalarProperty Name="Finger1" ColumnName="Finger1" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainer">
+            <EntityTypeMapping TypeName="GYMModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainer">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PhotoLink" ColumnName="PhotoLink" />
+                <ScalarProperty Name="Finger2" ColumnName="Finger2" />
+                <ScalarProperty Name="Finger1" ColumnName="Finger1" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassSchedule">
+            <EntityTypeMapping TypeName="GYMModel.ClassSchedule">
+              <MappingFragment StoreEntitySet="ClassSchedule">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DateUdated" ColumnName="DateUdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StarTime" ColumnName="StarTime" />
+                <ScalarProperty Name="DayWeek" ColumnName="DayWeek" />
+                <ScalarProperty Name="IdWorkout" ColumnName="IdWorkout" />
+                <ScalarProperty Name="IdBranchOficce" ColumnName="IdBranchOficce" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetClassScheduleByOfficeWorkouTrainer1" FunctionName="GYMModel.Store.GetClassScheduleByOfficeWorkouTrainer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GYMModel.GetClassScheduleByOfficeWorkouTrainer1_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdBranchOficce" ColumnName="IdBranchOficce" />
+                <ScalarProperty Name="IdWorkout" ColumnName="IdWorkout" />
+                <ScalarProperty Name="DayWeek" ColumnName="DayWeek" />
+                <ScalarProperty Name="StarTime" ColumnName="StarTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUdated" ColumnName="DateUdated" />
+                <ScalarProperty Name="NameWorkout" ColumnName="NameWorkout" />
+                <ScalarProperty Name="NameBranchOffice" ColumnName="NameBranchOffice" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ReviewClassSchedule">
+            <EntityTypeMapping TypeName="GYMModel.ReviewClassSchedule">
+              <MappingFragment StoreEntitySet="ReviewClassSchedule">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Members" ColumnName="Members" />
+                <ScalarProperty Name="IdTrainer" ColumnName="IdTrainer" />
+                <ScalarProperty Name="IsTrainer" ColumnName="IsTrainer" />
+                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+                <ScalarProperty Name="Observation" ColumnName="Observation" />
+                <ScalarProperty Name="IdClassSchedule" ColumnName="IdClassSchedule" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workout">
+            <EntityTypeMapping TypeName="GYMModel.Workout">
+              <MappingFragment StoreEntitySet="Workout">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

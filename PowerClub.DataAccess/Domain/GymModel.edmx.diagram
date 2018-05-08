@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0033f001413a44fea41bb3ae406947c7" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="GYMModel.TrainerType" Width="1.5" PointX="9.5" PointY="2.375" />
+        <EntityTypeShape EntityType="GYMModel.WorkoutParentClassSchedule" Width="1.5" PointX="6.375" PointY="5.75" />
+        <EntityTypeShape EntityType="GYMModel.BranchOffice" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="GYMModel.Staff" Width="1.5" PointX="3.375" PointY="6" />
+        <EntityTypeShape EntityType="GYMModel.Trainer" Width="1.5" PointX="11.75" PointY="1.5" />
+        <AssociationConnector Association="GYMModel.FK_Trainer_TrainerType" />
+        <EntityTypeShape EntityType="GYMModel.ClassSchedule" Width="1.5" PointX="3.5" PointY="0.75" />
+        <AssociationConnector Association="GYMModel.FK_ClassSchedule_BrancOficce" />
+        <EntityTypeShape EntityType="GYMModel.ReviewClassSchedule" Width="1.5" PointX="1.375" PointY="4.25" />
+        <AssociationConnector Association="GYMModel.FK_ReviewClassSchedule_ClassSchedule" />
+        <AssociationConnector Association="GYMModel.FK_ReviewClassSchedule_Staff" />
+        <EntityTypeShape EntityType="GYMModel.Workout" Width="1.5" PointX="6.375" PointY="1" />
+        <AssociationConnector Association="GYMModel.FK_ClassSchedule_Exercise" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65111585-05C0-4107-A4D6-1AEE49ABDEE4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfGym</RootNamespace>
+    <AssemblyName>WpfGym</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DPFPCtlXTypeLibNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\DPFPCtlXTypeLibNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPCtlXWrapperNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPCtlXWrapperNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPDevNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=696774c42ee28c57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPDevNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPEngNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPEngNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPGuiNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPGuiNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPShrNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPShrNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPShrXTypeLibNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\DPFPShrXTypeLibNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPFPVerNET.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fingerprint.Integration.Common">
+      <HintPath>..\packages\Fingerprint.Integration.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Fingerprint.Integration.DigitalPersona4500">
+      <HintPath>..\packages\Fingerprint.Integration.DigitalPersona4500.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Spreadsheet, Version=41.3.30.1070, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
+      <HintPath>..\packages\GemBox.Spreadsheet.41.3.30.1070\lib\net30\GemBox.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GenericCodes.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFCRUDControl.1.0.1\lib\GenericCodes.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GenericCodes.CRUD.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFCRUDControl.1.0.1\lib\GenericCodes.CRUD.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WebCam_Capture">
+      <HintPath>bin\WebCam_Capture.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\BruschCombo.xaml.cs">
+      <DependentUpon>BruschCombo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRBackground.xaml.cs">
+      <DependentUpon>GRBackground.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRButton.xaml.cs">
+      <DependentUpon>GRButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRDatePicker.xaml.cs">
+      <DependentUpon>GRDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRDialogConsultation.xaml.cs">
+      <DependentUpon>GRDialogConsultation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRDialogError.xaml.cs">
+      <DependentUpon>GRDialogError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRDialogInformation.xaml.cs">
+      <DependentUpon>GRDialogInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRLogPhotoHome.xaml.cs">
+      <DependentUpon>GRLogPhotoHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRNumericKeyboard.xaml.cs">
+      <DependentUpon>GRNumericKeyboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRPrincipalControl.xaml.cs">
+      <DependentUpon>GRPrincipalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRPrincipalControl1.xaml.cs">
+      <DependentUpon>GRPrincipalControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRShowCustomer.xaml.cs">
+      <DependentUpon>GRShowCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRShowCustomer_TSHIRT.xaml.cs">
+      <DependentUpon>GRShowCustomer_TSHIRT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GRTotalesControl.xaml.cs">
+      <DependentUpon>GRTotalesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\CustomDataGridColumn.cs" />
+    <Compile Include="Core\Helper.cs" />
+    <Compile Include="Core\PropertyInfoToBrushConverter .cs" />
+    <Compile Include="Core\ReadExcel.cs" />
+    <Compile Include="Core\Security.cs" />
+    <Compile Include="Core\WebCam.cs" />
+    <Compile Include="EventUserControl.xaml.cs">
+      <DependentUpon>EventUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FingerPrint\Utils.cs" />
+    <Compile Include="Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Clases.xaml.cs">
+      <DependentUpon>Clases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\DstReports.cs">
+      <DependentUpon>DstReports.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\DstReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstReports.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Reportes.xaml.cs">
+      <DependentUpon>Reportes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Tardanzas.xaml.cs">
+      <DependentUpon>Tardanzas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler.xaml.cs">
+      <DependentUpon>Scheduler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SchedulerGrid.cs" />
+    <Compile Include="Test\Hijo.xaml.cs">
+      <DependentUpon>Hijo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Padre.xaml.cs">
+      <DependentUpon>Padre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\BranchOffice\BranchOfficeImput.xaml.cs">
+      <DependentUpon>BranchOfficeImput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BranchOffice\BranchOfficeList.xaml.cs">
+      <DependentUpon>BranchOfficeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BranchOffice\BranchOfficeSearch.xaml.cs">
+      <DependentUpon>BranchOfficeSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\ClassScheduleImput.xaml.cs">
+      <DependentUpon>ClassScheduleImput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\ClassScheduleList.xaml.cs">
+      <DependentUpon>ClassScheduleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\ClassScheduleReview.xaml.cs">
+      <DependentUpon>ClassScheduleReview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\ClassScheduleReviewList.xaml.cs">
+      <DependentUpon>ClassScheduleReviewList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\SearchClassSchedule.xaml.cs">
+      <DependentUpon>SearchClassSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassSchedule\SearchScheRev.xaml.cs">
+      <DependentUpon>SearchScheRev.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExportFile\Export.xaml.cs">
+      <DependentUpon>Export.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuReport.xaml.cs">
+      <DependentUpon>MenuReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\POSPrincipal1.xaml.cs">
+      <DependentUpon>POSPrincipal1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\StaffImput.xaml.cs">
+      <DependentUpon>StaffImput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Staff\StaffList.xaml.cs">
+      <DependentUpon>StaffList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Trainer\TrainerImput.xaml.cs">
+      <DependentUpon>TrainerImput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Trainer\TrainerList.xaml.cs">
+      <DependentUpon>TrainerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Workout\WorkoutImput.xaml.cs">
+      <DependentUpon>WorkoutImput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Workout\WorkoutList.xaml.cs">
+      <DependentUpon>WorkoutList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WeekScheduler.xaml.cs">
+      <DependentUpon>WeekScheduler.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\BruschCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GRBackground.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GRDatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRDialogConsultation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRDialogError.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRDialogInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRLogPhotoHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRNumericKeyboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRPrincipalControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRPrincipalControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GRShowCustomer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRShowCustomer_TSHIRT.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GRTotalesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EventUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Reports\Clases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Reportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Tardanzas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scheduler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\Hijo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\Padre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BranchOffice\BranchOfficeImput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BranchOffice\BranchOfficeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BranchOffice\BranchOfficeSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\ClassScheduleImput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\ClassScheduleList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\ClassScheduleReview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\ClassScheduleReviewList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\SearchClassSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassSchedule\SearchScheRev.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExportFile\Export.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MenuReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\POSPrincipal1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Staff\StaffImput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Staff\StaffList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Trainer\TrainerImput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Trainer\TrainerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Workout\WorkoutImput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Workout\WorkoutList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WeekScheduler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptClases.rdlc" />
+    <EmbeddedResource Include="Reports\rptSustituciones.rdlc" />
+    <EmbeddedResource Include="Reports\rptTardanzas.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Reports\Dataset\DstReports.xsc">
+      <DependentUpon>DstReports.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\DstReports.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstReports.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\DstReports.xss">
+      <DependentUpon>DstReports.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerClub.Bussiness\PowerClub.Bussiness.csproj">
+      <Project>{d91cdccb-8ef8-4e0c-9d59-b8e68f41bb8a}</Project>
+      <Name>PowerClub.Bussiness</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Component\Resources\ANIMO_CREAR COTIZACIONES.png" />
+    <Resource Include="Component\Resources\ANIMO_DECLARACION.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_ACEPTAR_TARJETAS DE CREDITO.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_AGREGAR_TARJETAS DE CREDITO.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_CONTACTOS DE EMERGENCIA.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_EDITARTRANSACCION_COMENTARIO_ON.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_ELIMINAR.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_MODIFICAR_TARJETAS DE CREDITO.png" />
+    <Resource Include="Component\Resources\ANIMO_ICON_SALIR.png" />
+    <Resource Include="Component\Resources\Cancel.png" />
+    <Resource Include="Component\Resources\HUELLA.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_BANNER_LOGO.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_BUSCARTICULOS_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_DESCUENTOS_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_EDITARTRANSACCIONES_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_EFECTIVO_OFF.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_ELIMINARTRANSACCION_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_MINIMIZARPANTALLA_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_MISCELANEOS_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_PAGOS_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_REPORTEIMPFISCAL_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_SUSPENDER_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_TERMINAR SESION_ON.png" />
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_TRANSACCION_ON.png" />
+    <Resource Include="Component\Resources\Icon_Buscar Articulos_ON.png" />
+    <Resource Include="Component\Resources\Icon_Buscar Cliente_OFF1.png" />
+    <Resource Include="Component\Resources\ICON_CALENDARIO.png" />
+    <Resource Include="Component\Resources\ICON_CLASE.png" />
+    <Resource Include="Component\Resources\ICON_CLASE_OFF.png" />
+    <Resource Include="Component\Resources\ICON_CLASE_ON.png" />
+    <Resource Include="Component\Resources\Icon_Corte X_ON.png" />
+    <Resource Include="Component\Resources\ICON_DISCIPLINA.png" />
+    <Resource Include="Component\Resources\Icon_Eliminar Item_ON.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_AGREGARCLIENTE_GUARDARYSALIR.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DEVOLVERTRANSACCION_CANTIDAD.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_INFORMATION.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_NO.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_OK.png" />
+    <Resource Include="Component\Resources\ICON_GREEN_HOME_AGREGARVENDEDOR_ON.png" />
+    <Resource Include="Component\Resources\ICON_GREEN_HOME_INFORMACIONDELCLIENTE_OFF.png" />
+    <Resource Include="Component\Resources\Icon_Principal_Blanco_ON.png" />
+    <Resource Include="Component\Resources\ICON_PWC_BANNER_LOGO.png" />
+    <Resource Include="Component\Resources\ICON_PWC_HOME_TRAINING_ON.png" />
+    <Resource Include="Component\Resources\ICON_REGISTRO CLASE.png" />
+    <Resource Include="Component\Resources\ICON_REGISTRO CLASE_OFF.png" />
+    <Resource Include="Component\Resources\ICON_REGISTRO CLASE_ON.png" />
+    <Resource Include="Component\Resources\ICON_REPORTE.png" />
+    <Resource Include="Component\Resources\ICON_STAFF.png" />
+    <Resource Include="Component\Resources\ICON_SUCURSAL.png" />
+    <Resource Include="Component\Resources\ICON_TRAINER.png" />
+    <Resource Include="Component\Resources\POSLoginIDLogoOperador.png" />
+    <Resource Include="Component\Resources\SILBATO.png" />
+    <Resource Include="Component\Resources\user2.jpg" />
+    <Resource Include="Component\Resources\userIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Component\Resources\ICON_ANIMO_HOME_TRANSACCIONCLIENTE_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_ACEPTAR.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_CALENDARIO.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_CONSULTATION.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_ERROR.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_DIALOGOS_PLEASESETDATERANGE.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_IDOPERADOR_APAGAR.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_IDOPERADOR_CERRAR_OFF.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_IDOPERADOR_CERRAR_ON.png" />
+    <Resource Include="Component\Resources\ICON_GENERIC_IDOPERADOR_CONECTAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component\Resources\ANIMO_CREAR COTIZACIONES1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component\Resources\ANIMO_DECLARACION1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Component\Resources\ANIMO_ICON_EDITARTRANSACCION_COMENTARIO_ON1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_CREAR COTIZACIONES.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_DECLARACION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_ACEPTAR_TARJETAS DE CREDITO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_AGREGAR_TARJETAS DE CREDITO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_CONTACTOS DE EMERGENCIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_EDITARTRANSACCION_COMENTARIO_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_ELIMINAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_MODIFICAR_TARJETAS DE CREDITO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANIMO_ICON_SALIR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HUELLA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_BANNER_LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_BUSCARTICULOS_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_DESCUENTOS_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_EDITARTRANSACCIONES_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_EFECTIVO_OFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_ELIMINARTRANSACCION_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_MINIMIZARPANTALLA_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_MISCELANEOS_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_PAGOS_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_REPORTEIMPFISCAL_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_SUSPENDER_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_TERMINAR SESION_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_TRANSACCION_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ANIMO_HOME_TRANSACCIONCLIENTE_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Buscar Articulos_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Buscar Cliente_OFF1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CALENDARIO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLASE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLASE_OFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLASE_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Corte X_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DISCIPLINA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Eliminar Item_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_AGREGARCLIENTE_GUARDARYSALIR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DEVOLVERTRANSACCION_CANTIDAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_ACEPTAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_CALENDARIO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_CONSULTATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_ERROR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_INFORMATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_NO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_DIALOGOS_PLEASESETDATERANGE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_IDOPERADOR_APAGAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_IDOPERADOR_CERRAR_OFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_IDOPERADOR_CERRAR_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GENERIC_IDOPERADOR_CONECTAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GREEN_HOME_AGREGARVENDEDOR_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_GREEN_HOME_INFORMACIONDELCLIENTE_OFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Principal_Blanco_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_PWC_BANNER_LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_PWC_HOME_TRAINING_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_REGISTRO CLASE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_REGISTRO CLASE_OFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_REGISTRO CLASE_ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_REPORTE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_STAFF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_SUCURSAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_TRAINER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\POSLoginIDLogoOperador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SILBATO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DPFPCtlXLib">
+      <Guid>{B49E66FF-6927-4378-9685-937F14679ADD}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPDevXLib">
+      <Guid>{BCDEF2D4-F788-4A38-B0C2-C97B3F9FB791}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPEngXLib">
+      <Guid>{A9EFB3F6-A8C8-4684-841E-4330973057C6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPShrXLib">
+      <Guid>{B8FAC44B-A9C5-478E-A9BF-566419996CAE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

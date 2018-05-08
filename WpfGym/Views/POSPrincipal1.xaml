@@ -1,0 +1,37 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Control="clr-namespace:WpfGym.Controls" x:Class="WpfGym.Views.POSPrincipal1" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="POSPrincipal1">
+
+    <Grid Margin="0,0,0,0" Grid.Row="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Control:GRButton x:Name="ButtonButtonSuspend"   FontSize="14" Grid.Column="3"         HorizontalAlignment="Stretch" Margin="3,3,3,3"     Grid.Row="3" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Style="{DynamicResource GRButtonStyleGrisAnimo898989}" ButtonText=" Suspender Trans." ButtonImageH="24" ButtonImageW="24"          Click="ButtonButtonSuspend_Click"                                                                                          ButtonImage="../Component/Resources/ICON_ANIMO_HOME_SUSPENDER_ON.png"/>
+        <Control:GRButton x:Name="ButtonButtonCash"      FontSize="14" Grid.ColumnSpan="3"     HorizontalAlignment="Stretch" Margin="3,3,2.6,5"   VerticalAlignment="Stretch" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_EFECTIVO_OFF.png"   ButtonText=" Efectivo        " ButtonImageH="24" ButtonImageW="24"                                                                                                                          Style="{DynamicResource GRButtonStyleGrisAnimo898989}" Click="ButtonButtonCash_Click"/>
+        <Control:GRButton x:Name="ButtonFindItem"        FontSize="14"                         HorizontalAlignment="Stretch" Margin="3,1,2.6,1.4" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Style="{DynamicResource GRButtonStyleGrisAnimo898989}" ButtonText=" Buscar Articulos" ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_BUSCARTICULOS_ON.png"                                                       Click="Button_ClickButtonFindItem"/>
+        <Control:GRButton x:Name="ButtonTransatcion"     FontSize="14" Grid.Column="3"         HorizontalAlignment="Stretch" Margin="3.4,1,3,1.4" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="3"                                        ButtonText=" Transacciones   " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_TRANSACCION_ON.png"                                       Style="{DynamicResource GRButtonStyleGrisAnimo898989}"   Click="Button_ClickButtonTransaccion"/>
+        <Control:GRButton x:Name="ButtonDeletePayment"   FontSize="14"                         HorizontalAlignment="Stretch" Margin="3,3,3,3"     Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3"                                        ButtonText=" Comentarios     " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ANIMO_ICON_EDITARTRANSACCION_COMENTARIO_ON.png" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"                Click="Button_ClickDeletePayments"/>
+        <Control:GRButton x:Name="ButtonDeleteTransP"    FontSize="14" Grid.Column="3"         HorizontalAlignment="Stretch" Margin="3,3,3,3"     Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3"                                        ButtonText=" Eliminar Trans. " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_ELIMINARTRANSACCION_ON.png"                                      Style="{DynamicResource GRButtonStyleGrisAnimo898989}" Click="Button_ClickButtonDeleteTransP"/>
+        <Control:GRButton x:Name="ButtonExit"            FontSize="14" Grid.ColumnSpan="3"     HorizontalAlignment="Stretch" Margin="3,3,3,3"     Grid.Row="3" VerticalAlignment="Stretch"                                                            ButtonText=" Salir           " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_TERMINAR SESION_ON.png" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"    Click="ButtonExit_Click"/>
+        <Control:GRButton x:Name="ButtonMinimize"        FontSize="14" Grid.ColumnSpan="3"     HorizontalAlignment="Stretch" Margin="3.4,3,3,5"   Grid.Column="3"  VerticalAlignment="Stretch" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"                 ButtonText=" Minimizar       "  ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_MINIMIZARPANTALLA_ON.png"  Click="ButtonMinimize_Click" />
+        <!--<Control:GRBackground x:Name="BackGround" Margin="-1500,-1000,-80,-80" Grid.RowSpan="4" Grid.ColumnSpan="6" />-->
+    </Grid>
+</Page>

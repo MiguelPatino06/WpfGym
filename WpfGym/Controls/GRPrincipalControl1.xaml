@@ -1,0 +1,254 @@
+﻿<UserControl x:Class="WpfGym.Controls.GRPrincipalControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfGym.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="ButtonPrincipal" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FFDDDDDD"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FF283C19"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF283C19"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FF283C19"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF283C19"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GRButtonGRNuevoPrueba" TargetType="{x:Type local:GRButton}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#48d702"/>
+            <Setter Property="BorderBrush" Value="#48d702"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:GRButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#48d702" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#CC48D702"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#CC48D702"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#7F48D702"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#7F48D702"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GRButtonOFF1" TargetType="{x:Type local:GRButton}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#143a0e"/>
+            <Setter Property="BorderBrush" Value="#143a0e"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:GRButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#143a0e" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#CC143A0E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#CC143A0E"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#7F143A0E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#7F143A0E"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GRButtonOFF2" TargetType="{x:Type local:GRButton}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FFDDDDDD"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:GRButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#FF45D60C" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Grid.Row="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        
+        <!--<local:GRButton x:Name="ButtonDiscount" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="3,3,3,3" Grid.Row="2" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_DESCUENTOS_ON.png" ButtonImageH="32" ButtonText=" Descuentos      " ButtonImageW="32" Click="ButtonPrincipalControl_Click" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"/>
+        <local:GRButton x:Name="ButtonReportImpFiscal" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="3,3,3,3"  Grid.Row="3" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_REPORTEIMPFISCAL_ON.png" ButtonText="  Rep. Imp Fiscal" ButtonImageW="32" ButtonImageH="32" ButtonImageStretch="Fill" Click="ButtonPrincipalControl_Click" Style="{DynamicResource GRButtonStyleGrisAnimo898989}" />
+        <local:GRButton x:Name="ButtonPayment" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Grid.Column="1"  Margin="3,3,3,3" Grid.Row="3"  ButtonText=" Pagos               " ButtonImage="../Component/Resources/ICON_ANIMO_HOME_PAGOS_ON.png" ButtonImageH="32" ButtonImageW="32"  Click="ButtonPrincipalControl_Click" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"  />
+        <local:GRButton x:Name="ButtonMiscelaneos" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1"  Margin="3,3,3,3" Grid.Row="2" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_MISCELANEOS_ON.png" ButtonText=" Miscelaneos    " ButtonImageH="32" ButtonImageW="32" Click="ButtonPrincipalControl_Click" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"/>
+        <local:GRButton x:Name="ButtonEditTrans" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1"  Margin="3,3,3,3" Grid.Row="1"  ButtonImage="../Component/Resources/ICON_ANIMO_HOME_EDITARTRANSACCIONES_ON.png" ButtonImageH="32" ButtonImageW="32" ButtonText=" Edit. Trans       "  Click="ButtonPrincipalControl_Click" Style="{DynamicResource GRButtonStyleGrisAnimo898989}" />
+        <local:GRButton x:Name="ButtonEditItems" FontSize="14" FontFamily="exo" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1"  Margin="3,3,3,3" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_BUSCARTICULOS_ON.png" ButtonImageH="32" ButtonImageW="32" ButtonText=" Articulos          " Style="{DynamicResource GRButtonStyleGrisAnimo898989}" Click="ButtonPrincipalControl_Click"/>-->
+
+        <local:GRButton x:Name="ButtonButtonSuspend"   Grid.Row ="3" Grid.Column="1" FontSize="14"         HorizontalAlignment="Stretch" Margin="3,3,3,3" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Style="{DynamicResource GRButtonStyleGrisAnimo898989}" ButtonText=" Suspender Trans." ButtonImageH="24" ButtonImageW="24"    ButtonImage="../Component/Resources/ICON_ANIMO_HOME_SUSPENDER_ON.png"/>
+        <local:GRButton x:Name="ButtonButtonCash"      Grid.Row ="0" Grid.Column="0" FontSize="14" HorizontalAlignment="Stretch" Margin="3,3,2.6,5"   VerticalAlignment="Stretch" ButtonImage="../Component/Resources/ICON_ANIMO_HOME_EFECTIVO_OFF.png"   ButtonText=" Efectivo        " ButtonImageH="24" ButtonImageW="24"                                                                                                                          Style="{DynamicResource GRButtonStyleGrisAnimo898989}"/>
+        <local:GRButton x:Name="ButtonFindItem"        Grid.Row ="1" Grid.Column="0" FontSize="14" HorizontalAlignment="Stretch" Margin="3,1,2.6,1.4" VerticalAlignment="Stretch"  Style="{DynamicResource GRButtonStyleGrisAnimo898989}" ButtonText=" Buscar Articulos" ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_BUSCARTICULOS_ON.png"      />
+        <local:GRButton x:Name="ButtonTransatcion"     Grid.Row ="1" Grid.Column="1" FontSize="14" HorizontalAlignment="Stretch" Margin="3.4,1,3,1.4" VerticalAlignment="Stretch"                                         ButtonText=" Transacciones   " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_TRANSACCION_ON.png"                                       Style="{DynamicResource GRButtonStyleGrisAnimo898989}"   />
+        <local:GRButton x:Name="ButtonDeletePayment"   Grid.Row ="2" Grid.Column="0" FontSize="14" HorizontalAlignment="Stretch" Margin="3,3,3,3"    VerticalAlignment="Stretch"                                         ButtonText=" Comentarios     " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ANIMO_ICON_EDITARTRANSACCION_COMENTARIO_ON.png" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"               />
+        <local:GRButton x:Name="ButtonDeleteTransP"    Grid.Row ="2" Grid.Column="1" FontSize="14" HorizontalAlignment="Stretch" Margin="3,3,3,3"    VerticalAlignment="Stretch"                                         ButtonText=" Eliminar Transacción " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_ELIMINARTRANSACCION_ON.png"                                      Style="{DynamicResource GRButtonStyleGrisAnimo898989}" />
+        <local:GRButton x:Name="ButtonExit"            Grid.Row ="3" Grid.Column="0" FontSize="14" HorizontalAlignment="Stretch" Margin="3,3,3,3"    VerticalAlignment="Stretch"                                                            ButtonText=" Salir           " ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_TERMINAR SESION_ON.png" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"   />
+        <local:GRButton x:Name="ButtonMinimize"        Grid.Row ="0" Grid.Column="1" FontSize="14" HorizontalAlignment="Stretch" Margin="3.4,3,3,5"  VerticalAlignment="Stretch" Style="{DynamicResource GRButtonStyleGrisAnimo898989}"                 ButtonText=" Minimizar       "  ButtonImageH="24" ButtonImageW="24"         ButtonImage="../Component/Resources/ICON_ANIMO_HOME_MINIMIZARPANTALLA_ON.png"  />
+
+
+    </Grid>
+</UserControl>

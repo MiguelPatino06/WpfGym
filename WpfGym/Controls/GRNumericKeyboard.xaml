@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WpfGym.Controls.GRNumericKeyboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400" >
+    <Grid>
+        <Grid Margin="10,10,10,11" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="27
+                                      *"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button7" Content="7" Margin="2,2,2,2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonCircle}" FontFamily="Exo" Click="Button7_Click"/>
+            <Button x:Name="Button8" Content="8" Margin="2,2,2,2" Grid.Column="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button8_Click"/>
+            <Button x:Name="Button9" Content="9" Margin="2,2,2,2" Grid.Column="2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button9_Click"/>
+            <Button x:Name="Button4" Content="4" Margin="2,2,2,2" Grid.Row="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button4_Click"/>
+            <Button x:Name="Button5" Content="5" Margin="2,2,2,2" Grid.Row="1" Grid.Column="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button5_Click"/>
+            <Button x:Name="Button6" Content="6" Margin="2,2,2,2" Grid.Row="1" Grid.Column="2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button6_Click"/>
+            <Button x:Name="Button1" Content="1" Margin="2,2,2,2" Grid.Row="2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button1_Click"/>
+            <Button x:Name="Button2" Content="2" Margin="2,2,2,2" Grid.Row="2" Grid.Column="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button2_Click"/>
+            <Button x:Name="Button3" Content="3" Margin="2,2,2,2" Grid.Row="2" Grid.Column="2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" Click="Button3_Click" />
+            <Button x:Name="Button0" Content="0" Margin="2,2,2,2" Grid.Row="3" FontSize="40"                 Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button0_Click" Background="{DynamicResource AnimoNaranjaCircle}"/>
+            <Button x:Name="Button_" Content="*" Margin="2,2,2,2" Grid.Row="3" Grid.Column="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button__Click"/>
+            <Button x:Name="Button_coma" Content="," Margin="2,2,2,2" Grid.Row="3" Grid.Column="2" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="Button_coma_Click"/>
+            <Button x:Name="ButtonC" Content="C" Margin="2,2,2,2" Grid.Column="3" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}"   Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="ButtonC_Click"/>
+            <Button x:Name="ButtonOK" Content="OK" Margin="2,2,2,2" Grid.Column="3" Grid.Row="1" FontSize="40" Background="{DynamicResource AnimoNaranjaCircle}" Foreground="#FF0C2953" BorderBrush="{x:Null}" Style="{DynamicResource ButtonANIMONARANJACIRCLE1}" FontFamily="Exo" Click="ButtonOK_Click" />
+            <Button x:Name="ButtonDEL" Content="DEL" Margin="2,2,2,2" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" FontSize="40" Foreground="#FF0C2953" BorderBrush="{x:Null}"    Style="{DynamicResource ButtonANIMONARANJACIRCLE2}" FontFamily="Exo" Click="ButtonDEL_Click" Background="{DynamicResource AnimoNaranjaCircle}"/>
+        </Grid>
+    </Grid>
+</UserControl>
